@@ -23,433 +23,167 @@
       --text-muted: #9ca3af;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; overflow-x: hidden; position: relative; }
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
+    .ambient-glow { position: fixed; width: 500px; height: 500px; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(120px); opacity: 0.28; }
+    .glow-1 { top: -100px; left: 10%; background: radial-gradient(circle, #dfba73, transparent 70%); }
+    .glow-2 { top: 40%; right: -50px; background: radial-gradient(circle, #7e52a0, transparent 70%); }
+    .glow-3 { bottom: -100px; left: 30%; background: radial-gradient(circle, #c59b4e, transparent 70%); }
 
-    /* Background Ambient Glows */
-    .ambient-glow {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(120px);
-      opacity: 0.28;
-    }
-    .glow-1 {
-      top: -100px;
-      left: 10%;
-      background: radial-gradient(circle, #dfba73, transparent 70%);
-    }
-    .glow-2 {
-      top: 40%;
-      right: -50px;
-      background: radial-gradient(circle, #7e52a0, transparent 70%);
-    }
-    .glow-3 {
-      bottom: -100px;
-      left: 30%;
-      background: radial-gradient(circle, #c59b4e, transparent 70%);
-    }
-
-    .container {
-      width: min(1200px, 92%);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      padding: 3rem 0 6rem;
-    }
-
-    /* ===== HERO / HEADER ===== */
-    header {
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      position: relative;
-    }
+    .container { width: min(1200px, 92%); margin: 0 auto; position: relative; z-index: 1; padding: 3rem 0 6rem; }
+    header { text-align: center; padding: 4rem 1rem 2rem; }
 
     .brand-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: rgba(223, 186, 115, 0.08);
-      border: 1px solid var(--gold-border);
-      color: var(--gold-light);
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 20px var(--gold-glow);
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+      border-radius: 999px; background: rgba(223, 186, 115, 0.08); border: 1px solid var(--gold-border);
+      color: var(--gold-light); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 1.5rem; box-shadow: 0 0 20px var(--gold-glow);
     }
-
-    .brand-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #dfba73;
-      box-shadow: 0 0 8px #dfba73;
-    }
+    .brand-dot { width: 6px; height: 6px; border-radius: 50%; background: #dfba73; box-shadow: 0 0 8px #dfba73; }
 
     h1.luxury-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 900;
-      letter-spacing: 3px;
-      background: linear-gradient(180deg, #ffffff 20%, #dfba73 70%, #9a742c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      font-family: 'Cinzel', serif; font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 900;
+      letter-spacing: 3px; background: linear-gradient(180deg, #ffffff 20%, #dfba73 70%, #9a742c 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.15;
+      margin-bottom: 0.8rem; text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
-    .hero-subtitle {
-      color: var(--text-muted);
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      max-width: 680px;
-      margin: 0 auto;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    /* ===== SEARCH & FILTER PANEL ===== */
-    .controls-wrapper {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 1.25rem;
-      margin: 2.5rem auto 3rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .search-bar {
-      position: relative;
-      display: flex;
+    /* Identitas Developer fatur62 dengan Animasi Kelap-Kelip */
+    .developer-badge {
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1.2rem;
-      font-size: 1.1rem;
-      color: var(--gold-light);
-      pointer-events: none;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 1rem 1rem 1rem 3.2rem;
-      background: rgba(10, 8, 14, 0.7);
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      color: #fff;
-      font-size: 1rem;
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .search-input:focus {
-      border-color: #dfba73;
-      box-shadow: 0 0 15px var(--gold-glow);
-    }
-
-    .filter-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      border: 1px solid var(--glass-border);
-      padding: 0.5rem 1.1rem;
+      gap: 9px;
+      margin: 0.5rem auto 1.5rem;
+      padding: 6px 18px;
+      background: rgba(15, 13, 20, 0.7);
+      border: 1px solid rgba(223, 186, 115, 0.2);
       border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e7eb;
+      letter-spacing: 1.5px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
-    .filter-btn:hover {
-      color: #fff;
-      border-color: rgba(223, 186, 115, 0.4);
+    .dev-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6cff83;
+      box-shadow: 0 0 10px #6cff83;
+      animation: blink 1.1s infinite;
     }
 
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.25;
+        transform: scale(0.65);
+      }
+    }
+
+    .hero-subtitle { color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 680px; margin: 0 auto; font-weight: 300; line-height: 1.6; }
+
+    .controls-wrapper {
+      background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border); border-radius: 20px; padding: 1.25rem;
+      margin: 2.5rem auto 3rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+
+    .search-bar { position: relative; display: flex; align-items: center; }
+    .search-icon { position: absolute; left: 1.2rem; font-size: 1.1rem; color: var(--gold-light); pointer-events: none; }
+    .search-input {
+      width: 100%; padding: 1rem 1rem 1rem 3.2rem; background: rgba(10, 8, 14, 0.7);
+      border: 1px solid var(--glass-border); border-radius: 14px; color: #fff; font-size: 1rem;
+      outline: none; transition: all 0.3s;
+    }
+    .search-input:focus { border-color: #dfba73; box-shadow: 0 0 15px var(--gold-glow); }
+
+    .filter-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04); color: var(--text-muted); border: 1px solid var(--glass-border);
+      padding: 0.5rem 1.1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.3s;
+    }
+    .filter-btn:hover { color: #fff; border-color: rgba(223, 186, 115, 0.4); }
     .filter-btn.active {
-      background: var(--gold-gradient);
-      color: #0d0b11;
-      font-weight: 700;
-      border-color: transparent;
+      background: var(--gold-gradient); color: #0d0b11; font-weight: 700; border-color: transparent;
       box-shadow: 0 4px 15px rgba(223, 186, 115, 0.35);
     }
 
-    /* ===== APPS GRID ===== */
-    .apps-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding: 0 0.5rem;
-    }
+    .apps-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding: 0 0.5rem; }
+    .counter-text { color: var(--gold-light); font-size: 0.9rem; letter-spacing: 1px; }
 
-    .counter-text {
-      color: var(--gold-light);
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.75rem;
-    }
-
-    /* ===== APP CARD ===== */
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.75rem; }
     .app-card {
-      background: var(--glass-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--glass-card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: 24px; padding: 1.75rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden; transition: all 0.35s;
     }
-
-    .app-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(223, 186, 115, 0.08) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.35s;
-      pointer-events: none;
-    }
-
     .app-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold-border);
+      transform: translateY(-6px); border-color: var(--gold-border);
       box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 25px var(--gold-glow);
     }
 
-    .app-card:hover::before {
-      opacity: 1;
-    }
-
-    .card-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-
+    .card-top { display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 1.25rem; }
     .app-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #24202d, #14121a);
-      border: 1px solid var(--gold-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      flex-shrink: 0;
+      width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #24202d, #14121a);
+      border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); flex-shrink: 0;
     }
 
-    .app-meta h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.3rem;
-    }
+    .app-meta h2 { font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.3rem; }
+    .category-badge { font-size: 0.75rem; font-weight: 600; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; }
+    .app-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 
-    .category-badge {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .app-desc {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .tech-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #d1d5db;
-      font-size: 0.72rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #d1d5db; font-size: 0.72rem; padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 500;
     }
 
-    .card-action {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: auto;
-    }
-
+    .card-action { display: flex; gap: 0.75rem; margin-top: auto; }
     .btn-launch {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 0.8rem 1.2rem;
-      background: var(--gold-gradient);
-      color: #0b090f;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
+      flex: 1; display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 0.8rem 1.2rem; background: var(--gold-gradient); color: #0b090f;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem; border-radius: 12px;
+      transition: all 0.3s; border: none; cursor: pointer;
     }
-
-    .btn-launch:hover {
-      box-shadow: 0 6px 20px rgba(223, 186, 115, 0.4);
-      filter: brightness(1.08);
-    }
-
+    .btn-launch:hover { box-shadow: 0 6px 20px rgba(223, 186, 115, 0.4); filter: brightness(1.08); }
     .btn-details {
-      padding: 0.8rem;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--glass-border);
-      color: #ffffff;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 0.8rem; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--glass-border);
+      color: #ffffff; border-radius: 12px; cursor: pointer; transition: all 0.2s;
     }
+    .btn-details:hover { background: rgba(255, 255, 255, 0.12); }
 
-    .btn-details:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    /* ===== EMPTY STATE ===== */
     .empty-state {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 4rem 1rem;
-      background: var(--glass-card);
-      border-radius: 20px;
-      border: 1px solid var(--glass-border);
-    }
-    .empty-state p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
+      grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;
+      background: var(--glass-card); border-radius: 20px; border: 1px solid var(--glass-border); color: var(--text-muted);
     }
 
-    /* ===== MODAL ===== */
+    /* Modal */
     .modal-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 1.5rem;
     }
-
-    .modal-backdrop.active {
-      display: flex;
-    }
-
+    .modal-backdrop.active { display: flex; }
     .modal-box {
-      background: #15131c;
-      border: 1px solid var(--gold-border);
-      border-radius: 24px;
-      max-width: 600px;
-      width: 100%;
-      padding: 2.2rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-      position: relative;
+      background: #15131c; border: 1px solid var(--gold-border); border-radius: 24px;
+      max-width: 600px; width: 100%; padding: 2.2rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9); position: relative;
     }
-
     .modal-close {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      background: rgba(255, 255, 255, 0.06);
-      border: none;
-      color: #ffffff;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.2rem;
+      position: absolute; top: 1.2rem; right: 1.2rem; background: rgba(255, 255, 255, 0.06);
+      border: none; color: #ffffff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      border-top: 1px solid var(--glass-border);
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 5rem;
-    }
-
-    footer span.brand-gold {
-      color: var(--gold-light);
-      font-weight: 600;
-    }
-
-    @media (max-width: 640px) {
-      .grid-container {
-        grid-template-columns: 1fr;
-      }
-      .controls-wrapper {
-        padding: 1rem;
-      }
-    }
+    footer { border-top: 1px solid var(--glass-border); text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 0.85rem; margin-top: 5rem; }
+    footer span.brand-gold { color: var(--gold-light); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -464,14 +198,22 @@
         <span class="brand-dot"></span>
         Personal Software Suite
       </div>
+      
       <h1 class="luxury-title">THE MASTERPIECE VAULT</h1>
-      <p class="hero-subtitle">Galeri portofolio kurasi aplikasi digital pintar, produktivitas, dan utilitas eksklusif karya <strong>fatur62</strong>.</p>
+
+      <!-- Identitas Developer fatur62 -->
+      <div class="developer-badge">
+        <span class="dev-dot"></span>
+        <span>developer : fatur62</span>
+      </div>
+
+      <p class="hero-subtitle">Galeri portofolio kurasi aplikasi digital pintar dan utilitas eksklusif karya fatur62.</p>
     </header>
 
     <section class="controls-wrapper">
       <div class="search-bar">
         <span class="search-icon">✧</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="Cari nama aplikasi, modul, atau teknologi (cth: Dapur, AI, Finansial)...">
+        <input type="text" id="searchInput" class="search-input" placeholder="Cari nama aplikasi, modul, atau teknologi...">
       </div>
       <div class="filter-tags" id="categoryFilters">
         <button class="filter-btn active" data-category="Semua">Semua Kreasi</button>
@@ -489,7 +231,6 @@
     <main class="grid-container" id="appsGrid"></main>
   </div>
 
-  <!-- Detail Modal -->
   <div class="modal-backdrop" id="appModal">
     <div class="modal-box">
       <button class="modal-close" id="closeModalBtn">&times;</button>
@@ -498,121 +239,50 @@
   </div>
 
   <footer>
-    <p>© 2026 <span class="brand-gold">FATUR ARCHIVE</span> • Crafted with Architectural Precision</p>
+    <p>© 2026 <span class="brand-gold">FATUR ARCHIVE</span> • Crafted with Architectural Precision by <strong>fatur62</strong></p>
   </footer>
 
   <script>
-    // Database Katalog Semua Aplikasi yang Pernah Dibuat
-    const appsDataJSON = JSON.stringify([
-      {
-        id: "dapurku",
-        name: "DAPURKU - Asisten Dapur Ibu",
-        category: "Lifestyle & Rumah",
-        icon: "🍳",
-        desc: "Sistem cerdas manajemen resep berbasis ketersediaan bahan dapur, perencanaan menu 7 hari, stok bahan, dan timer memasak terintegrasi.",
-        tech: ["HTML5", "CSS Grid", "Vanilla JS ES6", "LocalStorage"],
-        status: "Production Ready",
-        url: "#",
-        features: [
-          "Pencarian resep dinamis berdasarkan stok bahan",
-          "Perencana menu keluarga mingguan",
-          "Kalkulator anggaran belanja dapur",
-          "Timer memasak otomatis"
-        ]
-      },
-      {
-        id: "kas-pintar",
-        name: "Aura Ledger - Finansial Keluarga",
-        category: "Keuangan",
-        icon: "💎",
-        desc: "Aplikasi pencatatan arus kas dan alokasi budget bulanan dengan visualisasi diagram rasio tabungan otomatis.",
-        tech: ["Modern JS", "Chart Engine", "IndexedDB", "CSS Glassmorphism"],
-        status: "Active",
-        url: "#",
-        features: [
-          "Tracking pemasukan & pengeluaran real-time",
-          "Kalkulator dana darurat otomatis",
-          "Export laporan ke format JSON / CSV",
-          "Privasi 100% tersimpan di lokal browser"
-        ]
-      },
-      {
-        id: "pomodoro-focus",
-        name: "Chronos Focus Studio",
-        category: "Produktivitas",
-        icon: "⏳",
-        desc: "Manajemen waktu kerja mendalam berbasis metode Pomodoro dengan soundscape ambient alam dan pelacak target harian.",
-        tech: ["Web Audio API", "Web Workers", "Canvas FX"],
-        status: "Active",
-        url: "#",
-        features: [
-          "Interval fokus & istirahat kustom",
-          "Pilihan suara latar ambient (hujan, kafe, ombak)",
-          "Pencatatan sesi kerja harian tanpa jeda",
-          "Notifikasi audio presisi tinggi"
-        ]
-      },
-      {
-        id: "quick-notes",
-        name: "Velox Markdown Workspace",
-        category: "Produktivitas",
-        icon: "📝",
-        desc: "Editor catatan kilat dengan live rendering Markdown, tagging hirarkis, dan mode layar penuh bebas distraksi.",
-        tech: ["Vanilla JS", "Markdown Parser", "LocalStorage"],
-        status: "Active",
-        url: "#",
-        features: [
-          "Live preview split-screen instan",
-          "Sistem tag kategori dan pencarian instan",
-          "Auto-save background setiap ketukan",
-          "Dukungan export teks bersih"
-        ]
-      },
-      {
-        id: "unit-converter",
-        name: "OmniConverter Pro",
-        category: "Utilitas & Tools",
-        icon: "📐",
-        desc: "Alat konversi satuan multifungsi: konversi takaran masak dapur (cup, gram, sdm), mata uang, hingga kalkulasi metrik.",
-        tech: ["Modern JS", "Math Algorithms", "Responsive CSS"],
-        status: "Active",
-        url: "#",
-        features: [
-          "Konversi metrik dapur internasional ke takaran lokal",
-          "Kalkulator suhu & volume instan",
-          "Antarmuka cepat tanpa reload halaman"
-        ]
-      },
-      {
-        id: "jawara-lyric",
-        name: "Sekar Raras - Generator Lirik",
-        category: "Lifestyle & Rumah",
-        icon: "📜",
-        desc: "Asisten komposer lirik tembang Jawa modern dengan analisis rima (purwakanthi) dan penyesuaian tingkatan Ngoko/Krama.",
-        tech: ["NLP Pattern Matcher", "RegEx Engine", "Modern JS"],
-        status: "Active",
-        url: "#",
-        features: [
-          "Pengecekan rima akhir baris otomatis",
-          "Kamus padanan kata Ngoko Alus & Krama Inggil",
-          "Terjemahan paralel Bahasa Indonesia"
-        ]
-      }
-    ]);
+    const SUPABASE_URL = "https://PROJECT_ID_ANDA.supabase.co";
+    const SUPABASE_KEY = "KEY_ANON_PUBLIC_ANDA";
 
-    // Safe JSON Parse
-    function safeParse(data) {
+    let allApps = [];
+    let currentCategory = "Semua";
+
+    async function loadAppsData() {
       try {
-        if (!data || typeof data !== "string") return [];
-        const result = JSON.parse(data);
-        return Array.isArray(result) ? result : [];
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/apps?select=*&order=id.desc`, {
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`
+          }
+        });
+
+        if (!response.ok) throw new Error("Gagal mengambil data dari database");
+        const rawData = await response.json();
+
+        allApps = (Array.isArray(rawData) ? rawData : []).map(item => ({
+          id: String(item.id),
+          name: item.name || "Tanpa Judul",
+          category: item.category || "Umum",
+          icon: item.icon || "✨",
+          desc: item.description || "",
+          url: item.url || "#",
+          tech: item.tech ? item.tech.split(",").map(t => t.trim()).filter(Boolean) : [],
+          features: item.features ? item.features.split("\n").map(f => f.trim()).filter(Boolean) : []
+        }));
+
+        filterAndRender();
       } catch (err) {
-        console.error("Gagal membaca database aplikasi:", err);
-        return [];
+        console.error("Fetch error:", err);
+        document.getElementById("appsGrid").innerHTML = `
+          <div class="empty-state">
+            <p>Gagal memuat katalog dari database online.</p>
+          </div>
+        `;
       }
     }
 
-    // Render Grid Kartu Aplikasi
     function renderApps(apps) {
       const grid = document.getElementById("appsGrid");
       const counter = document.getElementById("appCounter");
@@ -624,7 +294,7 @@
       if (apps.length === 0) {
         grid.innerHTML = `
           <div class="empty-state">
-            <p>Tidak ada aplikasi yang sesuai dengan kriteria pencarian.</p>
+            <p>Tidak ada aplikasi yang cocok dengan pencarian.</p>
           </div>
         `;
         return;
@@ -659,18 +329,15 @@
       });
     }
 
-    // Filter Logic
-    let allApps = [];
-    let currentCategory = "Semua";
-
     function filterAndRender() {
-      const query = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+      const searchInput = document.getElementById("searchInput");
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
       const filtered = allApps.filter(app => {
         const matchCategory = currentCategory === "Semua" || app.category === currentCategory;
         const matchSearch = 
-          app.name.toLowerCase().includes(query) ||
-          app.desc.toLowerCase().includes(query) ||
+          (app.name && app.name.toLowerCase().includes(query)) ||
+          (app.desc && app.desc.toLowerCase().includes(query)) ||
           (app.tech && app.tech.some(t => t.toLowerCase().includes(query)));
 
         return matchCategory && matchSearch;
@@ -679,7 +346,6 @@
       renderApps(filtered);
     }
 
-    // Modal Details Logic
     function openDetails(appId) {
       const target = allApps.find(a => a.id === appId);
       if (!target) return;
@@ -702,16 +368,14 @@
         <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">${target.desc}</p>
         <h4 style="color: var(--gold-light); margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Fitur Utama:</h4>
         <ul style="list-style: none; margin-bottom: 2rem;">${featuresHtml}</ul>
-        <a href="${target.url}" class="btn-launch" style="width: 100%; text-align: center;">Jalankan Sekarang</a>
+        <a href="${target.url}" class="btn-launch" target="_blank" rel="noopener" style="width: 100%; text-align: center;">Jalankan Sekarang</a>
       `;
 
       modal.classList.add("active");
     }
 
-    // Event Listeners
     document.addEventListener("DOMContentLoaded", () => {
-      allApps = safeParse(appsDataJSON);
-      renderApps(allApps);
+      loadAppsData();
 
       const searchInput = document.getElementById("searchInput");
       if (searchInput) {
