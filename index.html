@@ -149,13 +149,68 @@
     }
 
     .card-action { display: flex; gap: 0.75rem; margin-top: auto; }
+
+    /* Tombol Utama dengan Efek Kilau Mengalir (Shimmer) */
     .btn-launch {
-      flex: 1; display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; padding: 0.8rem 1.2rem; background: var(--gold-gradient); color: #0b090f;
-      text-decoration: none; font-weight: 700; font-size: 0.9rem; border-radius: 12px;
-      transition: all 0.3s; border: none; cursor: pointer;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.8rem 1.2rem;
+      background: var(--gold-gradient);
+      color: #0b090f;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(223, 186, 115, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
-    .btn-launch:hover { box-shadow: 0 6px 20px rgba(223, 186, 115, 0.4); filter: brightness(1.08); }
+
+    .btn-launch::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -150%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      animation: shimmerSweep 3.5s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerSweep {
+      0% {
+        left: -150%;
+      }
+      30% {
+        left: 200%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
+
+    .btn-launch:hover {
+      box-shadow: 0 6px 20px rgba(223, 186, 115, 0.4);
+      filter: brightness(1.08);
+    }
+
+    .btn-launch:active {
+      transform: scale(0.98);
+    }
+
     .btn-details {
       padding: 0.8rem; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--glass-border);
       color: #ffffff; border-radius: 12px; cursor: pointer; transition: all 0.2s;
