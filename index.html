@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FATUR ARCHIVE • Curated Digital Ecosystem</title>
+  <title>FATUR ARCHIVE • Curated Digital Ecosystem by fatur62</title>
+  
+  <!-- SEO Primary Meta Tags -->
+  <meta name="description" content="Kumpulan portofolio kurasi aplikasi web pintar, tools produktivitas, utilitas, dan modul digital eksklusif karya Fatchurohman (fatur62).">
+  <meta name="author" content="Fatchurohman (fatur62)">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fatchurohman.github.io/kumpulan-aplikasiku/">
+
+  <!-- Google Search Console Verification (Ganti value kode_verifikasi_anda) -->
+  <!-- <meta name="google-site-verification" content="kode_verifikasi_anda" /> -->
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fatchurohman.github.io/kumpulan-aplikasiku/">
+  <meta property="og:title" content="FATUR ARCHIVE • Curated Digital Ecosystem">
+  <meta property="og:description" content="Galeri kurasi portofolio aplikasi digital dan utilitas eksklusif karya fatur62.">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FATUR ARCHIVE • Curated Digital Ecosystem">
+  <meta name="twitter:description" content="Galeri kurasi portofolio aplikasi digital dan utilitas eksklusif karya fatur62.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +69,6 @@
       margin-bottom: 0.8rem; text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
-    /* Identitas Developer fatur62 dengan Animasi Kelap-Kelip */
     .developer-badge {
       display: inline-flex;
       justify-content: center;
@@ -150,7 +169,6 @@
 
     .card-action { display: flex; gap: 0.75rem; margin-top: auto; }
 
-    /* Tombol Utama dengan Efek Kilau Mengalir (Shimmer) */
     .btn-launch {
       flex: 1;
       position: relative;
@@ -256,7 +274,6 @@
       
       <h1 class="luxury-title">THE MASTERPIECE VAULT</h1>
 
-      <!-- Identitas Developer fatur62 -->
       <div class="developer-badge">
         <span class="dev-dot"></span>
         <span>developer : fatur62</span>
@@ -323,18 +340,21 @@
           icon: item.icon || "✨",
           desc: item.description || "",
           url: item.url || "#",
-          tech: item.tech ? item.tech.split(",").map(t => t.trim()).filter(Boolean) : [],
-          features: item.features ? item.features.split("\n").map(f => f.trim()).filter(Boolean) : []
+          tech: typeof item.tech === "string" ? item.tech.split(",").map(t => t.trim()).filter(Boolean) : [],
+          features: typeof item.features === "string" ? item.features.split("\n").map(f => f.trim()).filter(Boolean) : []
         }));
 
         filterAndRender();
       } catch (err) {
         console.error("Fetch error:", err);
-        document.getElementById("appsGrid").innerHTML = `
-          <div class="empty-state">
-            <p>Gagal memuat katalog dari database online.</p>
-          </div>
-        `;
+        const grid = document.getElementById("appsGrid");
+        if (grid) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <p>Gagal memuat katalog dari database online.</p>
+            </div>
+          `;
+        }
       }
     }
 
@@ -407,6 +427,7 @@
 
       const modal = document.getElementById("appModal");
       const content = document.getElementById("modalContent");
+      if (!modal || !content) return;
 
       const featuresHtml = (target.features || [])
         .map(f => `<li style="margin-bottom: 0.5rem; color: #d1d5db;">✦ ${f}</li>`)
